@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wilson Ramos · Desarrollador Backend Java</title>
+<meta name="description" content="Ingeniero Electrónico y desarrollador Backend Java Junior: Java 21, Spring Boot, Spring Security, PostgreSQL y Docker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eef1f5;--surface:#fff;--ink:#13223a;--mute:#566379;--line:#cfd7e2;--blue:#1f4f96;--amber:#c97d00;--amber-bg:#fff3d6;--glow:rgba(201,125,0,.35);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1828;--surface:#162338;--ink:#e8eef7;--mute:#9fb0c8;--line:#2a3b57;--blue:#7fb0ff;--amber:#ffb62e;--amber-bg:#3a2b0a;--glow:rgba(255,182,46,.4)}}
+:root[data-theme="dark"]{--bg:#0f1828;--surface:#162338;--ink:#e8eef7;--mute:#9fb0c8;--line:#2a3b57;--blue:#7fb0ff;--amber:#ffb62e;--amber-bg:#3a2b0a;--glow:rgba(255,182,46,.4)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px 0 56px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .in{max-width:900px;margin:0 auto;padding:10px 24px;display:flex;gap:6px;align-items:center;overflow-x:auto}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;margin-right:auto;white-space:nowrap}
+nav a{color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:15px;white-space:nowrap}
+nav a:hover,nav a.on{background:var(--surface);color:var(--ink)}
+#bus{position:fixed;left:24px;top:0;bottom:0;width:4px;background:var(--line);border-radius:4px;z-index:5}
+#bus i{display:block;width:100%;height:0;background:var(--amber);border-radius:4px;box-shadow:0 0 12px var(--glow)}
+section{padding:84px 0 24px;position:relative}
+section h2{font-size:clamp(30px,5vw,44px);margin-bottom:28px;position:relative}
+section h2::before{content:"";position:absolute;left:-39px;top:.28em;width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--line);transition:.4s}
+section.seen h2::before{border-color:var(--amber);background:var(--amber);box-shadow:0 0 0 6px var(--glow)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+#hero{padding-top:70px}
+#hero h1{font-size:clamp(46px,10vw,96px);font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+#hero h1 span{display:block;color:var(--mute);transition:color .6s,text-shadow .6s}
+body.on #hero h1 span{color:var(--amber);text-shadow:0 0 28px var(--glow)}
+.lead{font-size:clamp(19px,2.6vw,24px);max-width:34ch;margin:22px 0 30px}
+.breaker{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 18px;width:fit-content;max-width:100%;cursor:pointer;font:600 16px Figtree,sans-serif;color:var(--ink)}
+.sw{width:64px;height:32px;border-radius:99px;background:var(--line);position:relative;transition:.3s;flex:none}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:var(--surface);transition:.3s}
+body.on .sw{background:var(--amber)}body.on .sw::after{left:36px}
+.hint{color:var(--mute);font-size:15px;margin:12px 0 0;min-height:1.6em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:none;font-family:inherit;font-size:16px;cursor:pointer}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-2px)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat b{font:800 34px "Bricolage Grotesque",sans-serif;display:block;color:var(--blue)}
+.stat span{color:var(--mute);font-size:15px}
+p{max-width:66ch;margin:0 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:7px 16px;font:500 15px Figtree,sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.skills{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.skills li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-weight:500;transition:.35s}
+.skills li.off{opacity:.18;transform:scale(.94)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+.meta{color:var(--mute);font-size:15px;margin-bottom:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}
+.layer{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.layer button{text-align:left;border:1.5px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 16px;font:600 16px Figtree,sans-serif;color:var(--ink);cursor:pointer}
+.layer button[aria-expanded="true"]{border-color:var(--amber);background:var(--amber-bg)}
+.layer button:nth-child(2){margin-left:18px}.layer button:nth-child(3){margin-left:36px}.layer button:nth-child(4){margin-left:54px}
+#ld{background:var(--bg);border-left:4px solid var(--amber);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 18px;min-height:3.4em}
+ul.ds{padding-left:20px;margin:0 0 6px;max-width:66ch}ul.ds li{margin-bottom:8px}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:26px}
+.job{position:relative;padding-bottom:30px}
+.job::before{content:"";position:absolute;left:-34px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--amber)}
+.job h3{font-size:22px}.job .meta{margin:4px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid .card{padding:20px}.grid h3{font-size:19px;margin-bottom:6px}.grid .meta{margin:0}
+.bar{height:8px;background:var(--line);border-radius:8px;margin:6px 0 14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--blue);border-radius:8px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.bar.in i{width:var(--w)}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 16px}
+footer{padding:50px 0 70px;color:var(--mute);font-size:15px}
+#theme{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:6px 12px;cursor:pointer;font:500 14px Figtree,sans-serif}
+@media (max-width:600px){.wrap{padding:0 18px 0 48px}#bus{left:16px}section h2::before{left:-37px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}.bar i{width:var(--w)}}
+</style>
+</head>
+<body>
+<div id="bus" aria-hidden="true"><i id="busf"></i></div>
+<nav aria-label="Principal"><div class="in">
+<b>Wilson Ramos</b>
+<a href="#perfil">Perfil</a><a href="#skills">Habilidades</a><a href="#proyecto">Proyecto</a><a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+<button id="theme" type="button" aria-label="Cambiar tema claro u oscuro">Tema</button>
+</div></nav>
+
+<main class="wrap">
+<section id="hero" class="seen">
+<h1>Wilson<span>Ramos</span></h1>
+<p class="lead">Desarrollador Backend Java Junior. Ingeniero Electrónico con más de 4 años en operaciones de alta tensión.</p>
+<button class="breaker" id="breaker" type="button" aria-pressed="false"><span class="sw" aria-hidden="true"></span><span id="bl">Cierra el interruptor</span></button>
+<p class="hint" id="hint" aria-live="polite">Del sector eléctrico al código: prueba el interruptor.</p>
+<div class="cta">
+<a class="btn p" href="#proyecto">Ver mi proyecto</a>
+<a class="btn" href="#contacto">Contactarme</a>
+</div>
+<div class="stats">
+<div class="stat"><b data-n="4" data-s="+">0</b><span>años liderando operaciones técnicas</span></div>
+<div class="stat"><b data-n="21">0</b><span>versión de Java que uso (Java 21)</span></div>
+<div class="stat"><b data-n="4">0</b><span>cursos de backend completados en 2025</span></div>
+</div>
+</section>
+
+<section id="perfil"><h2>Perfil</h2>
+<div class="rv"><p>Ingeniero Electrónico (UNAD, 2024) en transición a desarrollo backend con Java 21 y Spring Boot. Diseño e implemento APIs REST seguras con Spring Security, JPA/Hibernate y PostgreSQL, y las despliego con Docker.</p>
+<p>Busco un rol Junior donde combinar criterio de ingeniería, disciplina en entornos críticos y desarrollo de software, idealmente en el sector energético o industrial.</p></div>
+</section>
+
+<section id="skills"><h2>Habilidades técnicas</h2>
+<div class="chips rv" role="group" aria-label="Filtrar habilidades">
+<button class="chip" aria-pressed="true" data-f="all">Todas</button>
+<button class="chip" aria-pressed="false" data-f="len">Lenguajes</button>
+<button class="chip" aria-pressed="false" data-f="fw">Frameworks</button>
+<button class="chip" aria-pressed="false" data-f="db">Datos y APIs</button>
+<button class="chip" aria-pressed="false" data-f="ops">Despliegue</button>
+<button class="chip" aria-pressed="false" data-f="con">Conceptos</button>
+</div>
+<ul class="skills rv" id="sk">
+<li data-c="len">Java 21</li><li data-c="len">SQL</li><li data-c="len">HTML y CSS</li><li data-c="len">Python (básico)</li>
+<li data-c="fw">Spring Boot</li><li data-c="fw">Spring Security</li><li data-c="fw">Spring Data JPA</li><li data-c="fw">Hibernate</li><li data-c="fw">Thymeleaf</li><li data-c="fw">Django y Flask (básico)</li>
+<li data-c="db">PostgreSQL</li><li data-c="db">REST API</li><li data-c="db">Postman</li><li data-c="db">Maven</li><li data-c="db">Git y GitHub</li>
+<li data-c="ops">Docker</li><li data-c="ops">Render</li>
+<li data-c="con">Programación orientada a objetos</li><li data-c="con">CRUD</li><li data-c="con">Autenticación y roles</li><li data-c="con">Arquitectura en capas</li>
+</ul>
+</section>
+
+<section id="proyecto"><h2>Proyecto</h2>
+<article class="card rv">
+<h3>Inventory Manager</h3>
+<div class="meta">Aplicación web backend · Septiembre 2026</div>
+<p>Aplicación para gestionar productos, categorías, inventario y ventas, que reemplaza el control manual de stock.</p>
+<p class="meta" style="margin-bottom:8px">Toca cada capa para ver qué hace:</p>
+<div class="layer" id="layers">
+<button type="button" aria-expanded="true" data-t="Vista (Thymeleaf): páginas web que ve el usuario o el administrador según su rol.">Vista · Thymeleaf</button>
+<button type="button" aria-expanded="false" data-t="Controladores y Spring Security: reciben las peticiones y restringen las operaciones críticas al rol administrador.">Controladores · Spring Security</button>
+<button type="button" aria-expanded="false" data-t="Servicios: reglas de negocio, como evitar ventas sin existencias disponibles.">Servicios · lógica de negocio</button>
+<button type="button" aria-expanded="false" data-t="Repositorios con JPA/Hibernate sobre PostgreSQL: operaciones CRUD y control de stock.">Datos · JPA, Hibernate, PostgreSQL</button>
+</div>
+<p id="ld"></p>
+<ul class="ds">
+<li>Autenticación y autorización con Spring Security y dos roles: usuario y administrador.</li>
+<li>CRUD y control de stock con JPA/Hibernate sobre PostgreSQL.</li>
+<li>Desplegado en producción en Render, con control de versiones en Git y GitHub.</li>
+</ul>
+<p class="meta">Tecnologías: Java 21, Spring Boot, Spring Security, JPA/Hibernate, PostgreSQL, Thymeleaf, Maven, Docker, Render.</p>
+<div class="cta" style="margin-top:12px"><a class="btn p" href="https://github.com/WilsonHRamosP" target="_blank" rel="noopener">Ver código en GitHub</a></div>
+</article>
+</section>
+
+<section id="experiencia"><h2>Experiencia</h2>
+<div class="tl">
+<div class="job rv"><h3>Supervisor de Operación Móvil</h3><div class="meta">DAGELEC · Junio 2026 – Actualidad</div>
+<ul class="ds"><li>Superviso maniobras de energización y desenergización de transformadores, circuitos y líneas de transmisión en subestaciones de media y alta tensión.</li>
+<li>Coordino comunicación en tiempo real con centros de control y atiendo alarmas.</li>
+<li>Interpreto planos y esquemas eléctricos para garantizar la seguridad de personas y equipos.</li></ul></div>
+<div class="job rv"><h3>Ingeniero de Soporte y Supervisor</h3><div class="meta">FyR Ingenieros · Mayo 2022 – Junio 2026</div>
+<ul class="ds"><li>Lideré un equipo técnico en el mantenimiento y las pruebas de equipos de media y alta tensión.</li>
+<li>Elaboré informes técnicos para clientes, con pruebas, hallazgos y recomendaciones documentados.</li>
+<li>Gestioné proyectos y coordiné con clientes y proveedores.</li></ul></div>
+</div>
+<p class="rv"><b>Lo que aporto al software:</b> disciplina en entornos críticos, lectura rigurosa de esquemas, documentación con trazabilidad y trabajo con equipos y clientes.</p>
+</section>
+
+<section id="formacion"><h2>Formación</h2>
+<div class="grid rv">
+<div class="card"><h3>Ingeniero Electrónico</h3><div class="meta">UNAD · 2024</div></div>
+<div class="card"><h3>Técnico y Tecnólogo en Electricidad</h3><div class="meta">SENA · 2012 – 2016</div></div>
+</div>
+<h3 style="margin:34px 0 14px;font-size:24px">Cursos y certificaciones</h3>
+<div class="grid rv">
+<div class="card"><h3>Oracle Next Education: Back-end</h3><div class="meta">Alura Latam · 2025</div></div>
+<div class="card"><h3>Java y Spring Framework</h3><div class="meta">Alura Latam, Oracle + ONE · 2025</div></div>
+<div class="card"><h3>Inteligencia Artificial y Java</h3><div class="meta">Alura Latam, Oracle + ONE · 2025</div></div>
+<div class="card"><h3>Backend con Python y Django/Flask</h3><div class="meta">Universidad de los Andes · 2025</div></div>
+</div>
+<h3 style="margin:34px 0 8px;font-size:24px">Idiomas</h3>
+<div class="rv" style="max-width:420px">
+<div>Español · nativo</div><div class="bar" style="--w:100%"><i></i></div>
+<div>Inglés · básico (A2)</div><div class="bar" style="--w:30%"><i></i></div>
+</div>
+</section>
+
+<section id="contacto"><h2>Contacto</h2>
+<div class="rv"><p>Estoy buscando mi primer rol backend Java Junior. Escríbeme y conversamos.</p>
+<div class="contact">
+<button class="btn p" id="copy" type="button">Copiar correo</button>
+<a class="btn" href="mailto:wisitom@hotmail.com">Enviar correo</a>
+<a class="btn" href="tel:+573107721866">310 772 1866</a>
+<a class="btn" href="https://www.linkedin.com/in/WilsonHRamos" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="https://github.com/WilsonHRamosP" target="_blank" rel="noopener">GitHub</a>
+</div>
+<p class="hint" id="cm" aria-live="polite">wisitom@hotmail.com · Colombia</p></div>
+</section>
+<footer>© 2026 Wilson Ramos</footer>
+</main>
+
+<script>
+(function(){
+var B=document.body,$=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
+// Tema
+var tb=$("#theme");
+try{var t=localStorage.getItem("wr-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+tb.onclick=function(){var d=document.documentElement,dark=d.getAttribute("data-theme")?d.getAttribute("data-theme")==="dark":matchMedia("(prefers-color-scheme:dark)").matches;var n=dark?"light":"dark";d.setAttribute("data-theme",n);try{localStorage.setItem("wr-theme",n)}catch(e){}};
+// Interruptor
+var br=$("#breaker"),hint=$("#hint"),bl=$("#bl");
+br.onclick=function(){var on=B.classList.toggle("on");br.setAttribute("aria-pressed",on);bl.textContent=on?"Línea energizada":"Cierra el interruptor";hint.textContent=on?"Maniobra completada: ahora el código también está energizado.":"Del sector eléctrico al código: prueba el interruptor."};
+// Barra de progreso
+var f=$("#busf");function prog(){var h=document.documentElement.scrollHeight-innerHeight;f.style.height=(h>0?scrollY/h*100:0)+"%"}
+addEventListener("scroll",prog,{passive:true});prog();
+// Reveal y sección activa
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+$$(".rv,.bar").forEach(function(el){io.observe(el)});
+var links=$$("nav a"),so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("seen");links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-40% 0px -50% 0px"});
+$$("section").forEach(function(s){so.observe(s)});
+// Contadores
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var el=e.target,n=+el.dataset.n,s=el.dataset.s||"",t0=performance.now();(function st(t){var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+(p===1?s:"");if(p<1)requestAnimationFrame(st)})(t0)})},{threshold:.6});
+$$("[data-n]").forEach(function(el){co.observe(el)});
+// Filtro de habilidades
+$$(".chip").forEach(function(c){c.onclick=function(){$$(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===c)});var k=c.dataset.f;$$("#sk li").forEach(function(li){li.classList.toggle("off",k!=="all"&&li.dataset.c!==k)})}});
+// Capas
+var ld=$("#ld"),ls=$$("#layers button");
+function show(b){ls.forEach(function(x){x.setAttribute("aria-expanded",x===b)});ld.textContent=b.dataset.t}
+ls.forEach(function(b){b.onclick=function(){show(b)}});show(ls[0]);
+// Copiar correo
+$("#copy").onclick=function(){var m="wisitom@hotmail.com",c=$("#cm");function ok(){c.textContent="Correo copiado: "+m}try{navigator.clipboard.writeText(m).then(ok,function(){c.textContent="Copia el correo manualmente: "+m})}catch(e){c.textContent="Copia el correo manualmente: "+m}};
+})();
+</script>
+</body>
+</html>
